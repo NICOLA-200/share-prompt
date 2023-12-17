@@ -26,3 +26,26 @@ const CreatePrompt = () => {
           tag: post.tag,
         }),
       });
+      if (response.ok) {
+          router.push("/");
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+  
+    return (
+      <Form
+        type='Create'
+        post={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={createPrompt}
+      />
+    );
+  };
+  
+  export default CreatePrompt;
+  
